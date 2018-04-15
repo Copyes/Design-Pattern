@@ -4,4 +4,4 @@
 
 ### Content
 
-* [x] 1、策略模式
+* [x] 1、策略模式 【strategy】

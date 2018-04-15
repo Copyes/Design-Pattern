@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>策略模式</title>
+</head>
+
+<body>
+  <div>请输入用户名：
+    <input type="text" name="username" id="username">
+  </div>
+  <div>请输入密码：
+    <input type="text" name="password" id="password">
+  </div>
+  <div>请输入电话:
+    <input type="text" name="phone" id="phone">
+  </div>
+  <button id="btn" type="button">提交</button>
+</body>
+<script src="./index.js"></script>
+<script>
+  var validatorFunc = function () {
+    var validator = new Validator()
+    validator.add(username, [{
+      strategy: 'isNoEmpty',
+      msg: '用户名不能为空'
+    }, {
+      strategy: 'minLength:10',
+      msg: '用户名长度不能小于10'
+    }])
+    validator.add(password, [{
+      strategy: 'isNoEmpty',
+      msg: '密码不能为空'
+    }, {
+      strategy: 'minLength:6',
+      msg: '密码长度不能小6'
+    }])
+    validator.add(phone, [{
+      strategy: 'isMobile',
+      msg: '手机号码格式不对'
+    }])
+    return validator.start()
+  }
+  let btn = document.getElementById('btn')
+
+  btn.addEventListener('click', function () {
+
+    let username = document.getElementById('username')
+    let password = document.getElementById('password')
+    let phone = document.getElementById('phone')
+
+    var msg = validatorFunc()
+    if (msg) {
+      alert(msg)
+      return false
+    } else {
+      alert('通过检测')
+    }
+  })
+</script>
+
+</html>
