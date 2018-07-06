@@ -4,4 +4,5 @@
 
 ### Content
 
-* [x] 1、策略模式 【strategy】
+- [x] 1、策略模式 【strategy】
+- [ ] 2、组合模式 【combination】
