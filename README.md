@@ -6,3 +6,4 @@
 
 - [x] 1、策略模式 【strategy】
 - [ ] 2、组合模式 【combination】
+- [ ] 3、代理模式 【proxy】
